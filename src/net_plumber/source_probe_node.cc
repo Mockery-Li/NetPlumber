@@ -59,13 +59,13 @@ void default_probe_callback(void *caller, SourceProbeNode *p, Flow *f,void *data
   ofstream outf;
   char* fileName = "./verification_state.log";
   if (t == STARTED_FALSE || t == TRUE_TO_FALSE) {
-      outf.open(fileName, fstream::out);
-      outf << 'F';
+      outf.open(fileName, fstream::out | fstream::app);
+      outf << time(0) << " F" << endl;
       outf.close();
   }
   else if (t == STARTED_TRUE || t == FALSE_TO_TRUE) {
-      outf.open(fileName, fstream::out);
-      outf << 'T';
+      outf.open(fileName, fstream::out | fstream::app);
+      outf << time(0) << " T" << endl;
       outf.close();
   }
 }
