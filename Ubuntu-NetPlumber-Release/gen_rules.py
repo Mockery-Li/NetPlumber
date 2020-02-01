@@ -30,6 +30,10 @@ a1 = {'id': 1, 'ports': [1001, 1002], 'rules': [{'action': 'fwd', 'match': 'xxxx
 a2 = {'id': 2, 'ports': [2001, 2002], 'rules': [{'action': 'fwd', 'match': 'xxxxxxxx', 'in_ports': [2001], 'out_ports': [2002]}]}
 a3 = {'id': 3, 'prots': [3001, 3002], 'rules': [{'action': 'fwd', 'match': 'xxxxxxxx', 'in_ports': [3001], 'out_ports': [3002]}]}
 
+a1 = {'id': 1, 'ports': [1001, 1002]}
+a2 = {'id': 2, 'ports': [2001, 2002]}
+a3 = {'id': 3, 'prots': [3001, 3002]}
+
 with open(outdir + "a1.tf.json", "w") as f:
     json.dump(a1, f)
 with open(outdir + "a2.tf.json", "w") as f:

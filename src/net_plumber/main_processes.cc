@@ -129,7 +129,8 @@ list<long> load_netplumber_from_dir(string json_file_path, NetPlumber * N, array
     }
     //N->print_plumbing_network();
   }
-  printf("total run time is %ld us. rules: %d average: %ld us\n",total_run_time,rule_counter,total_run_time/rule_counter);
+  if (rule_counter)
+      printf("total run time is %ld us. rules: %d average: %ld us\n",total_run_time,rule_counter,total_run_time/rule_counter);
   closedir(dir);
   return t_list;
 }
