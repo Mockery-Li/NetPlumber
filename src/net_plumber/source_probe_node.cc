@@ -23,6 +23,7 @@
 #include "net_plumber.h"
 #include <assert.h>
 #include <stdio.h>
+#include <fstream>
 
 using namespace std;
 using namespace log4cxx;
@@ -55,6 +56,18 @@ void default_probe_callback(void *caller, SourceProbeNode *p, Flow *f,void *data
   error_msg << "Probe " << p->node_id << " Activated after event " <<
       get_event_name(e.type) << ": " << probe_transition(t);
   LOG4CXX_WARN(probe_def_logger,error_msg.str());
+  ofstream outf;
+  char* fileName = "./verification_state.log";
+  if (t == STARTED_FALSE || t == TRUE_TO_FALSE) {
+      outf.open(fileName, fstream::out);
+      outf << 'F';
+      outf.close();
+  }
+  else if (t == STARTED_TRUE || t == FALSE_TO_TRUE) {
+      outf.open(fileName, fstream::out);
+      outf << 'T';
+      outf.close();
+  }
 }
 
 SourceProbeNode::SourceProbeNode(void *n, int length, uint64_t node_id,
