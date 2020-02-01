@@ -1,1 +1,1 @@
-{"rules": [{"action": "fwd", "in_ports": [1001], "out_ports": [1002], "match": "11111111"}], "id": 1, "ports": [1001, 1002]}
+{"rules": [{"action": "fwd", "in_ports": [1001], "out_ports": [1002], "match": "xxxxxxxx"}], "id": 1, "ports": [1001, 1002]}

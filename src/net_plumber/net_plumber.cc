@@ -25,7 +25,7 @@
 #include "net_plumber_utils.h"
 #include "../jsoncpp/json/json.h"
 
-#define __DEBUG__
+// #define __DEBUG__
 
 using namespace std;
 using namespace log4cxx;
@@ -259,7 +259,9 @@ void NetPlumber::set_node_pipelines(Node *n) {
     vector<uint32_t> *orig_ports = get_src_ports(n->input_ports.list[i]);
     if (!orig_ports) continue;
     for (size_t j = 0; j < orig_ports->size(); j++) {
+#ifdef __DEBUG__
         printf("orig %d\n", orig_ports->at(j));
+#endif
       list<Node*> *potential_prev_rules =
           get_nodes_with_outport(orig_ports->at(j));
       if (!potential_prev_rules) continue;

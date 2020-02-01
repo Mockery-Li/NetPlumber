@@ -24,7 +24,7 @@ extern "C" {
 }
 #include <set>
 
-#define __DEBUG__
+//#define __DEBUG__
 
 using namespace std;
 
@@ -278,7 +278,9 @@ void Node::propagate_src_flows_on_pipe(list<Pipeline *>::iterator pipe) {
   list<Flow *>::iterator it;
   hs *h = NULL;
   for (it = source_flow.begin(); it != source_flow.end(); it++) {
-    printf("propagete_src\n");
+#ifdef __DEBUG__
+      printf("propagete_src\n");
+#endif
     if (is_output_layer && should_block_flow(*it,(*pipe)->local_port))
       continue;
     if ((*it)->processed_hs == NULL) continue;

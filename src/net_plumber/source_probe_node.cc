@@ -89,10 +89,10 @@ void SourceProbeNode::process_src_flow(Flow *f) {
     if (state == RUNNING) update_check(f,0);
   } else {
     list<struct Pipeline*>::iterator it;
-    printf("process_src_flow\n");
+    //printf("process_src_flow\n");
     for (it = prev_in_pipeline.begin(); it != prev_in_pipeline.end(); it++) {
       
-        printf("prev_in_pipeline\n");
+        //printf("prev_in_pipeline\n");
         (*(*it)->r_pipeline)->node->
           propagate_src_flows_on_pipe((*it)->r_pipeline);
 
@@ -220,7 +220,7 @@ void SourceProbeNode::start_probe() {
   this->state = STARTED;
   list<Flow*>::iterator it;
   for (it = source_flow.begin(); it != source_flow.end(); it++) {
-    printf("Checking flow\n");
+    //printf("Checking flow\n");
       if (!filter->check(*it)) continue;
     bool c = test->check(*it);
     printf("check result: %d\n", c);
